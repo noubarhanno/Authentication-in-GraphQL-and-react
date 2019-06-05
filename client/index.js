@@ -5,6 +5,9 @@ import { ApolloProvider } from 'react-apollo';
 import { Router, hashHistory, Route, IndexRoute } from 'react-router';
 import App from './components/App';
 import LoginForm from './components/LoginForm';
+import Signup from './components/SignupForm';
+import Dashboard from './components/Dashboard';
+import requireAuth from './components/requireAuth';
 
 
 // the code below is for 
@@ -29,6 +32,9 @@ const Root = () => {
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <Route path="/login" component={LoginForm} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/dashboard" component={requireAuth(Dashboard)} />
+          {/* in the route above the Dashboard will be passed as WrappedComponent in the requireAuth HOC (check requireAuth.js file to see how to pass Wrapped Component) */}
         </Route>
       </Router>
     </ApolloProvider>

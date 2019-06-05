@@ -44,7 +44,6 @@ class Header extends Component{
 
     render(){
         // when we run the query automatically the data will be included inside this.props.data
-        console.log(this.props.data)
         return(
             <nav>
                 <div className="nav-wrapper">
